@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ValueAnimatorDemo"
+    tools:context=".ValueAnimatorObjectAnimator"
     android:background="@color/background_color">
 
     <ImageView
@@ -13,5 +13,18 @@
         android:layout_height="wrap_content"
         android:src="@drawable/xiquiz"
         android:layout_centerInParent="true"/>
+
+    <TextView
+        android:id="@+id/tvFuture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="We are going into the future"
+        android:layout_below="@+id/xiquiz"
+        android:layout_centerHorizontal="true"
+        android:textSize="40sp"
+        android:layout_marginTop="15dp"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
 
 </RelativeLayout>

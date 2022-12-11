@@ -1,5 +1,6 @@
 package com.ximix.animationsandroid
 
+import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,9 +9,9 @@ import android.view.animation.DecelerateInterpolator
 import android.widget.ImageView
 import com.ximix.animationsandroid.databinding.ActivityFadeBinding
 
-class ValueAnimatorDemo : AppCompatActivity() {
+class ValueAnimatorObjectAnimator : AppCompatActivity() {
 
-    lateinit var ivXiquiz: ImageView
+    private lateinit var ivQuiz: ImageView
 
     lateinit var binding: ActivityFadeBinding
 
@@ -19,35 +20,36 @@ class ValueAnimatorDemo : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        ivXiquiz = binding.xiquiz
+        ivQuiz = binding.xiquiz
 
         //fade()
         backDrop()
+        objectAnimatorDemo()
     }
 
     private fun backDrop(){
         // current position
-        val finalPosition = ivXiquiz.y
+        val finalPosition = ivQuiz.y
 
         // new position on the y axis
         val startPosition = finalPosition + 500
 
-        ivXiquiz.y = startPosition
+        ivQuiz.y = startPosition
 
         val animator = ValueAnimator.ofFloat(startPosition, finalPosition)
-        animator.duration = 10000
+        animator.duration = 7000
         animator.interpolator = DecelerateInterpolator()
 
         animator.addUpdateListener {
             val animatedValue = it.animatedValue as Float
-            ivXiquiz.translationY = animatedValue
+            ivQuiz.translationY = animatedValue
         }
 
         animator.start()
     }
 
     private fun fade(){
-        ivXiquiz.alpha = 0F
+        ivQuiz.alpha = 0F
 
         val animator = ValueAnimator.ofFloat(0f, 1f)
         animator.duration = 5000
@@ -55,10 +57,16 @@ class ValueAnimatorDemo : AppCompatActivity() {
 
         animator.addUpdateListener {
             val animatedValue = it.animatedValue as Float
-            ivXiquiz.alpha = animatedValue
-            ivXiquiz.scaleX = animatedValue
-            ivXiquiz.scaleY = animatedValue
+            ivQuiz.alpha = animatedValue
+            ivQuiz.scaleX = animatedValue
+            ivQuiz.scaleY = animatedValue
         }
+        animator.start()
+    }
+
+    private fun objectAnimatorDemo(){
+        val animator = ObjectAnimator.ofFloat(binding.tvFuture, "alpha",0f, 1f)
+        animator.duration = 10000
         animator.start()
     }
 }
