@@ -8,7 +8,7 @@ import android.view.animation.DecelerateInterpolator
 import android.widget.ImageView
 import com.ximix.animationsandroid.databinding.ActivityFadeBinding
 
-class Fade : AppCompatActivity() {
+class ValueAnimatorDemo : AppCompatActivity() {
 
     lateinit var ivXiquiz: ImageView
 
@@ -25,6 +25,26 @@ class Fade : AppCompatActivity() {
         backDrop()
     }
 
+    private fun backDrop(){
+        // current position
+        val finalPosition = ivXiquiz.y
+
+        // new position on the y axis
+        val startPosition = finalPosition + 500
+
+        ivXiquiz.y = startPosition
+
+        val animator = ValueAnimator.ofFloat(startPosition, finalPosition)
+        animator.duration = 10000
+        animator.interpolator = DecelerateInterpolator()
+
+        animator.addUpdateListener {
+            val animatedValue = it.animatedValue as Float
+            ivXiquiz.translationY = animatedValue
+        }
+
+        animator.start()
+    }
 
     private fun fade(){
         ivXiquiz.alpha = 0F
