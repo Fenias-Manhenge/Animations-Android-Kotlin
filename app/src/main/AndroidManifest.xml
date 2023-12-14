@@ -2,6 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Conexão de Internet -->
+    <uses-feature android:name="android.hardware.type.ethernet" />
+    <!-- Permissão para acesso à Internet -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- Permissão para acesso às APIs de gráfico -->
+    <uses-permission android:name="android.permission.CHARTING_API" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,6 +20,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AnimationsAndroid"
         tools:targetApi="31">
+        <activity
+            android:name=".Spline"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".ValueAnimatorObjectAnimator"
             android:exported="true">

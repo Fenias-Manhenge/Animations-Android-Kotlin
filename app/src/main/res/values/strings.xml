@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Animations(Android)</string>
+    <string name="todo">TODO</string>
+    <string name="we_are_going_into_the_future">We are going into the future</string>
 </resources>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Spline">
+
+    <!--<io.github.sceneview.SceneView
+        android:id="@+id/svSpline"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+        -->
+
+    <WebView
+        android:id="@+id/webView"
+        android:background="#7F7F7F"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true" />
+
+</RelativeLayout>
